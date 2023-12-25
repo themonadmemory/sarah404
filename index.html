@@ -64,7 +64,8 @@
         });
     }
 
-    showRandomStory();
+    // Appeler la fonction après le chargement de la page
+    window.onload = showRandomStory;
 
     document.addEventListener('contextmenu', function (e) {
         e.preventDefault();
@@ -129,7 +130,7 @@
 <div class="story-container theme1">
     <img src="IMG_6945.JPG" alt="Sarah" />
     <p>Amidst the tapestry of a rain-kissed window, Sarah, 36, discovered a collection of letters, each droplet a word of unsung emotions...</p>
-    <p>As raindrops penned verses, she danced with the storm, a lyrical journey echoing in the  quiet symphony of her heart.</p>
+    <p>As raindrops penned verses, she danced with the storm, a lyrical journey echoing in the quiet symphony of her heart.</p>
     <p>The clouds, gentle poets, weaved tales, and she embraced the transient poetry—a downpour of feelings cleansing the soul.</p>
 </div>
 
