@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -11,6 +11,27 @@
             font-family: 'Courier New', monospace;
             background-color: #f0f0f0;
             color: #333;
+        }
+
+        .intro-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #8b4513;
+            color: #fff;
+            text-align: center;
+        }
+
+        .intro-text {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .countdown {
+            font-size: 1.5em;
+            margin-top: 20px;
         }
 
         .story-container {
@@ -44,13 +65,60 @@
             background-color: #a0522d;
             color: #fff;
         }
+
+        /* Additional styling for mobile */
+        @media only screen and (max-width: 600px) {
+            body {
+                background-color: #2f2f2f;
+                color: #fff;
+            }
+
+            .intro-container {
+                background-color: #2f4f4f;
+            }
+
+            .story-container {
+                border-radius: 0;
+            }
+
+            .theme1, .theme2, .theme3 {
+                color: #fff;
+            }
+        }
     </style>
 </head>
-<body class="theme1">
+<body>
+
+<!-- Introduction Section -->
+<div class="intro-container">
+    <div class="intro-text">
+        Sarah 404: Enter
+    </div>
+    <button onclick="startCountdown()">Explore</button>
+    <div id="countdown" class="countdown"></div>
+</div>
 
 <script>
-    document.title = "Sarah 404";
+    // Countdown logic
+    function startCountdown() {
+        var countdownElement = document.getElementById('countdown');
+        var countdownValue = 3;
 
+        var countdownInterval = setInterval(function () {
+            countdownElement.textContent = countdownValue;
+
+            if (countdownValue === 0) {
+                clearInterval(countdownInterval);
+                document.querySelector('.intro-container').style.display = 'none';
+                document.body.classList.add('theme1'); // Default theme
+                showRandomStory(); // Show a random story after countdown
+            }
+
+            countdownValue--;
+        }, 1000);
+    }
+
+    // Show random story logic
     function showRandomStory() {
         var stories = document.querySelectorAll('.story-container');
         var randomIndex = Math.floor(Math.random() * stories.length);
@@ -63,20 +131,9 @@
             }
         });
     }
-
-    // Appeler la fonction après le chargement de la page
-    window.onload = showRandomStory;
-
-    document.addEventListener('contextmenu', function (e) {
-        e.preventDefault();
-    });
-
-    document.addEventListener('keydown', function (e) {
-        if (e.ctrlKey && (e.keyCode === 83 || e.keyCode === 85)) {
-            e.preventDefault();
-        }
-    });
 </script>
+
+<!-- Poetic Stories -->
 
 <!-- Poetic Story 1 -->
 <div class="story-container theme1">
@@ -123,14 +180,14 @@
 </div>
 
 <!-- Poetic Story 5 -->
-<div class="story-container theme2">
+<div class="story-container <div class="story-container theme2">
     <video autoplay loop muted playsinline>
-        <source src="video5.mp4" type="video/mp4">
+        <source src="video11.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
-    <p>In the twilight symphony, Sarah, 36, uncovered an antique map, its contours tracing the melody of forgotten journeys...</p>
-    <p>Led by the song of ancient whispers, she embarked on a cartographic waltz, rediscovering the pathways etched by time.</p>
-    <p>With each step, she left footprints on the parchment of history—a harmonious dance with the echoes of explorers past.</p>
+    <p>Beneath a veil of cherry blossoms, Sarah, 36, discovered a haiku, each petal a syllable in the delicate verses of spring...</p>
+    <p>As petals cascaded, she waltzed through the sakura breeze, a dance with the ephemeral beauty painted by nature's calligraphy.</p>
+    <p>The blossoms, nature's poets, whispered verses, and she embraced the fleeting bloom—a poetic interlude in the garden of seasons.</p>
 </div>
 
 <!-- Poetic Story 6 -->
@@ -201,3 +258,4 @@
 
 </body>
 </html>
+
